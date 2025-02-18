@@ -2,7 +2,7 @@
 ### Creating Dataframes and Tables
 First, the following code was used to create sample databases and frames to be used to complete the rest of the case study.
 
-```
+``` sql
 CREATE SCHEMA dannys_diner;
 SET search_path = dannys_diner;
 

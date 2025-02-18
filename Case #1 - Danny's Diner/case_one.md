@@ -61,7 +61,7 @@ VALUES
 ```
 
 ### Question One: Determining the total amount spent by each customer
-```
+``` sql
 SELECT
 	sales.customer_id,
     SUM(menu.price) AS total_sales
@@ -73,7 +73,7 @@ ORDER BY sales.customer_id ASC;
 ```
 
 ### Question Two: Determining how many times each customer has visited the restaurant
-```
+``` sql
 SELECT
 	customer_id,
     COUNT(order_date) AS total_visits
@@ -82,7 +82,7 @@ GROUP BY customer_id;
 ```
 
 ### Qustion Three: Determining the first item purchased by each customer
-```
+``` sql
 WITH ordered_sales AS (
 	SELECT
 		sales.customer_id,
@@ -102,7 +102,7 @@ GROUP BY customer_id, product_name;
 ```
 
 ### Question Four: Determining the most popular item on the menu for all customers and how many times it has been bought by all customers
-```
+``` sql
 SELECT
 	menu.product_name,
     COUNT(sales.product_id) AS num_purchases
@@ -115,7 +115,7 @@ LIMIT 1;
 ```
 
 ### Question Five: Determining the most popular item for each customer
-```
+``` sql
 WITH most_purchased AS (
 	SELECT
 		menu.product_name,
@@ -138,7 +138,7 @@ WHERE purchase_count = 1;
 ```
 
 ### Question Six: Determining the item first purchased by a customer after they became a member
-```
+``` sql
 WITH joined_as_member AS (
 	SELECT
 		members.customer_id,
@@ -165,7 +165,7 @@ ORDER BY customer_id;
 ```
 
 ### Question Seven: Determining the last item purchased by a customer before they becamse a member
-```
+``` sql
 WITH joined_as_member AS (
 	SELECT
 		members.customer_id,
@@ -192,7 +192,7 @@ ORDER BY customer_id;
 ```
 
 ### Question Eight: Determining the total number of items and amount spent by each member before they bought a membership
-```
+``` sql
 SELECT
 	sales.customer_id,
     COUNT(sales.product_id) AS total_items,
@@ -208,7 +208,7 @@ ORDER BY sales.customer_id;
 ```
 
 ### Question Nine: Calculating the number of points each customer has if every $1 spent is equal to 10 points and sushi is worth double the points
-```
+``` sql
 WITH total_points AS (
 	SELECT
 		product_id,
@@ -229,7 +229,7 @@ ORDER BY sales.customer_id;
 ```
 
 ### Question Ten: Calculating the number of points each member has in the month of January if the first week after buying a membership is worth double the points
-```
+``` sql
 WITH dates AS (
 	SELECT
 		customer_id,
@@ -259,7 +259,7 @@ ORDER BY sales.customer_id;
 ```
 
 ### Additional Question: Joining multiple tables and ranking products based on order purchased once having a membership
-```
+``` sql
 WITH customers_data AS (
 	SELECT
 		sales.customer_id,
